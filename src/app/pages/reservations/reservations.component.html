@@ -1,1 +1,21 @@
-<p>reservations works!</p>
+<div class="reservations">
+    <h1>Reservations</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations">
+          <td>{{ reservation.id }}</td>
+          <td>{{ reservation.customer }}</td>
+          <td>{{ reservation.date }}</td>
+          <td>{{ reservation.time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

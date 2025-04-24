@@ -62,7 +62,8 @@
               "buildTarget": "wosh:build:production"
             },
             "development": {
-              "buildTarget": "wosh:build:development"
+              "buildTarget": "wosh:build:development",
+               "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

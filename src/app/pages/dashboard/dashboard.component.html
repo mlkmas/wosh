@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <h1>Dashboard</h1>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Customers</h3>
+        <p>{{ stats.customersNumber || 0 }}</p>
+      </div>
+      <div class="stat-card">
+        <h3>Partners</h3>
+        <p>{{ stats.partnersNumber || 0 }}</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Reservations</h3>
+        <p>{{ stats.totalReservations || 0 }}</p>
+      </div>
+      <div class="stat-card">
+        <h3>Problematic Reservations</h3>
+        <p>{{ stats.problematicReservations || 0 }}</p>
+      </div>
+      <div class="stat-card">
+        <h3>Closed Reservations</h3>
+        <p>{{ stats.closedReservations || 0 }}</p>
+      </div>
+    </div>
+  </div>

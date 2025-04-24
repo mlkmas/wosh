@@ -1,11 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  stats: any = {};
 
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit(): void {
+    this.loadDashboardStats();
+  }
+
+  loadDashboardStats(): void {
+    this.apiService.getDashboardStats().subscribe({
+      next: (data) => {
+        this.stats = data;
+      },
+      error: (error) => {
+        console.error('Error loading dashboard stats:', error);
+      }
+    });
+  }
 }

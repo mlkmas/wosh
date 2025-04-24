@@ -1,1 +1,19 @@
-<p>customers works!</p>
+<div class="customers">
+    <h1>Customers</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
