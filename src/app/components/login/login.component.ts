@@ -16,11 +16,11 @@ export class LoginComponent {
   showEmailError = false;
   showPasswordError = false;
 
-  constructor(private loggerService: LoggerService, private router: Router) {}
+  constructor(private logger: LoggerService, private router: Router) {}
 
   onLogin() {
-    if (this.loggerService.login(this.email, this.password)) {
-      this.router.navigate(['/home']); 
+    if (this.logger.login(this.email, this.password)) {
+      this.router.navigate(['/home/dashboard']); 
     } else {
       this.showEmailError = true;
       this.showPasswordError = true;

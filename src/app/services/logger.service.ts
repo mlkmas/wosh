@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoggerService {
-  private isAuthenticated = false; 
+  private isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
 
   login(email: string, password: string): boolean {
     if (email === 'admin@wosh.co.il' && password === 'admin@wosh') { 
@@ -16,6 +16,7 @@ export class LoggerService {
 
   logout(): void {
     this.isAuthenticated = false;
+    localStorage.removeItem('isAuthenticated');
   }
 
   isLoggedIn(): boolean {
