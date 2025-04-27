@@ -1,29 +1,34 @@
+// login.component.ts
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { LoggerService } from '../../services/logger.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Add this import
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [FormsModule, CommonModule] // Add CommonModule here
+  standalone: true,
+  imports: [FormsModule, CommonModule]
 })
 export class LoginComponent {
+  username = '';  
   password = '';
-  email = '';
-  showEmailError = false;
-  showPasswordError = false;
+  errorMessage = '';  
 
-  constructor(private logger: LoggerService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  onLogin() {
-    if (this.logger.login(this.email, this.password)) {
-      this.router.navigate(['/home/dashboard']); 
-    } else {
-      this.showEmailError = true;
-      this.showPasswordError = true;
+  async onLogin() {
+    try {
+      const success = await this.authService.login(this.username, this.password);
+      if (success) {
+        this.router.navigate(['/home/dashboard']); 
+      } else {
+        this.errorMessage = 'Invalid username or password';
+      }
+    } catch (error) {
+      this.errorMessage = 'Login failed. Please try again.';
     }
   }
 }

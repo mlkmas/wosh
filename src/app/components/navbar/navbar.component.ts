@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LoggerService } from '../../services/logger.service';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -11,7 +11,7 @@ import { LoggerService } from '../../services/logger.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private router: Router, private logger: LoggerService) {}
+  constructor(private router: Router, private logger: AuthService) {}
 
   logout() {
     // Add your logout logic here

@@ -1,27 +1,40 @@
 <div class="login-container">
   <div class="login-box">
-    <!--img src="https://via.placeholder.com/80x80?text=WOSH" alt="WOSH Logo" class="wosh-logo"-->
     <h2>Welcome to WOSH</h2>
     <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-      <div class="input-group" [class.error]="showEmailError">
-        <label for="email">Email</label>
-        <input type="email" id="email" [(ngModel)]="email" name="email" required 
-               (focus)="showEmailError = false" placeholder="Enter your email">
-        <div class="error-message" *ngIf="showEmailError">
-          Invalid email or password
-        </div>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          [(ngModel)]="username" 
+          name="username" 
+          required
+          placeholder="Enter your username">
       </div>
       
-      <div class="input-group" [class.error]="showPasswordError">
+      <div class="input-group">
         <label for="password">Password</label>
-        <input type="password" id="password" [(ngModel)]="password" name="password" required
-               (focus)="showPasswordError = false" placeholder="Enter your password">
-        <div class="error-message" *ngIf="showPasswordError">
-          Invalid email or password
-        </div>
+        <input 
+          type="password" 
+          id="password" 
+          [(ngModel)]="password" 
+          name="password" 
+          required
+          placeholder="Enter your password">
       </div>
       
-      <button type="submit" class="login-button" [disabled]="loginForm.invalid">Login</button>
+      <!-- Error message that shows when errorMessage exists -->
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      
+      <button 
+        type="submit" 
+        class="login-button" 
+        [disabled]="loginForm.invalid">
+        Login
+      </button>
     </form>
   </div>
 </div>

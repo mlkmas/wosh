@@ -1,0 +1,8 @@
+{
+  "/authorization": {
+    "target": "https://api.wosh.co.il",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
